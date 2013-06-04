@@ -1,0 +1,30 @@
+\BOOKMARK [1][-]{section.1}{Background}{}% 1
+\BOOKMARK [1][-]{section.2}{Disclaimer}{}% 2
+\BOOKMARK [1][-]{section.3}{Usage}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Class Options}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Document Preamble}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Maketitle}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Heading Levels}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{Enumeration}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.6}{Other Macros}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.7}{Appendices}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Known Limitations}{}% 11
+\BOOKMARK [1][-]{section.5}{Development of apa6}{}% 12
+\BOOKMARK [2][-]{subsection.5.1}{Section Headings}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.2}{Float Placement}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.3}{Author Note}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{New features}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{Masked References}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.2}{Repositioned Floats}{section.6}% 18
+\BOOKMARK [2][-]{subsection.6.3}{User-defined Font Size}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.4}{Watermark}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.5}{Flexible Bibliographies}{section.6}% 21
+\BOOKMARK [3][-]{subsubsection.6.5.1}{biblatex}{subsection.6.5}% 22
+\BOOKMARK [3][-]{subsubsection.6.5.2}{apacite}{subsection.6.5}% 23
+\BOOKMARK [3][-]{subsubsection.6.5.3}{natbib}{subsection.6.5}% 24
+\BOOKMARK [2][-]{subsection.6.6}{Keywords}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.7}{Converting to Microsoft Word\256}{section.6}% 26
+\BOOKMARK [1][-]{section.7}{Dependencies}{}% 27
+\BOOKMARK [1][-]{section.8}{Examples}{}% 28
+\BOOKMARK [2][-]{subsection.8.1}{shortsample.tex}{section.8}% 29
+\BOOKMARK [2][-]{subsection.8.2}{shortsample.pdf}{section.8}% 30

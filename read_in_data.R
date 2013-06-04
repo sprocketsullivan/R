@@ -120,7 +120,7 @@ help.data2$change<-help.data2$x-player.bids.ranked$bids
 help.data2$ini_diff<-player.bids.ranked$ini_diff
 
 
-ggplot(aes(y=change,x=ini_diff),data=help.data2)+geom_point()+theme_bw()+geom_smooth(method='lm')+facet_grid(~Group.2)+xlab("Initial difference between the two players' bids")+ylab("Change between initial and later bids of one player")
+ggplot(aes(y=change,x=-ini_diff),data=help.data2)+geom_point()+theme_bw()+geom_smooth(method='lm')+facet_grid(~Group.2)+xlab("Initial difference between the two players' bids")+ylab("Change between initial and later bids of one player")
 ggplot(aes(y=change,x=factor(Group.2)),data=help.data2)+geom_point()+theme_bw()+facet_wrap(~Group.1)
 ggplot(aes(x=change),data=help.data2)+geom_histogram()+theme_bw()+facet_wrap(~Group.2)
 
@@ -134,8 +134,14 @@ ggplot(aes(x=own_bid),data=my.data)+geom_histogram()+facet_grid(id~pref_new)
 sum(my.data$own_bid==0)/4776
 sum(subset(my.data,pref_new==5)$own_bid==0)/length(subset(my.data,pref_new==1)$own_bid)
 
-
+#participants change their preference
 sum(rowSums(pref_before==pref_after,na.rm=T)==5)
+sum(pref_before[,1]==pref_after[,1])
+sum(pref_before[,2]==pref_after[,2])
+sum(pref_before[,3]==pref_after[,3])
+sum(pref_before[,4]==pref_after[,4])
+sum(pref_before[,5]==pref_after[,5])
+
 
 13/42
 
@@ -162,7 +168,10 @@ ggplot(aes(x=change.pref,y=Freq),data=subset(auction.out,a_won==1))+geom_boxplot
 
 
 
-
+#####
+#participants
+#####
+table(part.data$gender,part.data$partner_gender)
 
 
 
