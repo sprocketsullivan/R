@@ -66,7 +66,7 @@ ggplot(aes(x=other_dif,y=o_dif),data=subset(sub.data,trials>5&id>10))+geom_line(
 
 
 pb<-rep(0,5*max(my.data$id))
-player.bids.ranked<-data.frame(bids=pb,id=rep(seq(1,5),max(my.data$id)))
+player.bids.ranked<-data.frame(bids=pb,pref=rep(seq(1,5),max(my.data$id)),id=rep(seq(1,nrow(part.data)),each=5))
 #correct bids for initial bids
 my.data$corrected_own_bid<-0
 for(i in 1:max(my.data$id)){
@@ -86,16 +86,15 @@ ggplot(aes(y=corrected_own_bid,x=trials,col=factor(pref_new)),data=subset(my.dat
 ##############
 cbPalette <- c("#FEAC00", "#FCD82B", "#56B4E9", "#5E6F6A",  "#4C7F52")
 help.data<-subset(my.data,trials<6)
-p.1<-ggplot(aes(y=bids,x=factor(id),fill=factor(id)),data=player.bids.ranked)+geom_boxplot()+theme_bw()+ylab("mean bid")+xlab("preference")+scale_fill_manual(values=cbPalette)+theme(legend.position = "none") 
+p.1<-ggplot(aes(y=bids,x=factor(pref),fill=factor(pref)),data=player.bids.ranked)+geom_boxplot()+theme_bw()+ylab("mean bid")+xlab("preference")+scale_fill_manual(values=cbPalette)+theme(legend.position = "none") 
 #last bids
-help.data<-subset(my.data,pref_trials>=39)
+help.data<-subset(my.data,pref_trials>=35)
 p.2<-ggplot(aes(y=own_bid,x=factor(pref_new),fill=factor(pref_new)),data=help.data)+geom_boxplot()+theme_bw()+ylab("mean bid")+xlab("preference")+scale_fill_manual(values=cbPalette)+theme(legend.position = "none") 
 require(gridExtra)
 grid.arrange(p.1,p.2,ncol=2)
 ##############
-help.data2<-with(subset(my.data,trials>5),aggregate(own_bid,list(id,preference),mean))
+help.data2<-with(subset(my.data,trials>5),aggregate(own_bid,list(pref_new,id),mean))
 #difference between players initially 
-player.bids.ranked$id<-rep(seq(1,nrow(part.data)),each=5)
 for(i in 1:nrow(part.data))
 {
   if (part.data$computer[i]==1) part.data$partner_id[i]<-part.data$part_num[part.data$session==part.data$session[i]&part.data$computer==3]
@@ -104,23 +103,27 @@ for(i in 1:nrow(part.data))
   if (part.data$computer[i]==3) part.data$partner_id[i]<-part.data$part_num[part.data$session==part.data$session[i]&part.data$computer==1]
 }
 player.bids.ranked$ini_diff<-0
+player.bids.ranked$oth<-0
 for (i in 1:nrow(player.bids.ranked))
 {
   p_id<-part.data$partner_id[part.data$part_num==player.bids.ranked$id[i]]
   current_preference<-(i%%5)
   if(current_preference==0) current_preference<-5
+  player.bids.ranked$pref[i]<-current_preference
   if (i%%5==2) current_preference<-4
   if (i%%5==4) current_preference<-2
   oth_bid<-subset(player.bids.ranked,id==p_id)$bids[current_preference]
   player.bids.ranked$ini_diff[i]<-player.bids.ranked$bids[i]-oth_bid
+  player.bids.ranked$oth[i]<-oth_bid
 }
+
 
 help.data2$change<-help.data2$x-player.bids.ranked$bids
 #help.data2<-with(subset(my.data,trials>5),aggregate(other_bid,list(id,preference),mean))
 help.data2$ini_diff<-player.bids.ranked$ini_diff
 
 
-ggplot(aes(y=change,x=-ini_diff),data=help.data2)+geom_point()+theme_bw()+geom_smooth(method='lm')+facet_grid(~Group.2)+xlab("Initial difference between the two players' bids")+ylab("Change between initial and later bids of one player")
+ggplot(aes(y=change,x=-ini_diff),data=help.data2)+geom_point()+theme_bw()+geom_smooth(method='lm')+facet_grid(~Group.1)+xlab("Initial difference between the two players' bids")+ylab("Change between initial and later bids of one player")
 ggplot(aes(y=change,x=factor(Group.2)),data=help.data2)+geom_point()+theme_bw()+facet_wrap(~Group.1)
 ggplot(aes(x=change),data=help.data2)+geom_histogram()+theme_bw()+facet_wrap(~Group.2)
 
@@ -142,9 +145,6 @@ sum(pref_before[,3]==pref_after[,3])
 sum(pref_before[,4]==pref_after[,4])
 sum(pref_before[,5]==pref_after[,5])
 
-
-13/42
-
 length(c((pref_before==pref_after)[,1:5]))
 
 check_changes<-pref_before
@@ -153,8 +153,17 @@ for(j in 1:24)
 for(i in 1:5)
 check_changes[j,i]<-(which(pref_after[j,]==pref_before[j,i]))
 
+sum(check_changes[,5]<5)
+
 colSums(check_changes)
 hist(check_changes)
+fin.tab<-table(as.numeric(pref_before[1,1:5]),as.numeric(pref_after[1,1:5]))
+for(i in 2:nrow(part.data))
+fin.tab<-fin.tab+table(as.numeric(pref_before[i,1:5]),as.numeric(pref_after[i,1:5]))
+curves<-matrix(nrow=nrow(fin.tab),ncol=ncol(fin.tab),0.9)
+fin.tab[fin.tab>10]<-0
+require(diagram)
+plotmat(fin.tab,pos=5,curve=curves,relsize=0.5,arr.lwd=log(fin.tab*10))
 
 ##########
 #calculate auctions lost and whether change occurred
@@ -164,19 +173,16 @@ auction.out<-as.data.frame(table(my.data[,c("a_won","id","pref_new")]))
 auction.out$change.pref<-rep((c((pref_before==pref_after)[,1:5])),each=2)
 ggplot(aes(x=change.pref,y=Freq),data=subset(auction.out,a_won==1))+geom_boxplot()+facet_wrap(~pref_new)+theme_bw()
 
+########
+#sunk costs
+########
 
+my.data$sunk.costs<-0
+my.data$sunk.costs[my.data$a_won==-1]<-my.data$own_bid[my.data$a_won==-1]
+head(my.data)
+help.data<-with(my.data,aggregate(sunk.costs,list(id,pref_new),sum))     
 
-
-
-#####
-#participants
-#####
-table(part.data$gender,part.data$partner_gender)
-
-
-
-
-
+ggplot(aes(y=x,x=factor(Group.2)),data=help.data)+geom_boxplot()
 
 
 

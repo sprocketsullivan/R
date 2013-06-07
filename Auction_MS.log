@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.3.28)  4 JUN 2013 12:58
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.3.28)  6 JUN 2013 16:55
 entering extended mode
-**D:/ULFT/EXPERIMENTE/Human_experiments/Auction/Pilot2/R/Results_WnP_Cali.tex
-(D:/ULFT/EXPERIMENTE/Human_experiments/Auction/Pilot2/R/Results_WnP_Cali.tex
+**D:/UlfT/Experimente/Human_experiments/Auction/Pilot2/R/Auction_MS.tex
+(D:/UlfT/Experimente/Human_experiments/Auction/Pilot2/R/Auction_MS.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(D:\ULFT\EXPERIMENTE\Human_experiments\Auction\Pilot2\R\apa6.cls
+(D:\UlfT\Experimente\Human_experiments\Auction\Pilot2\R\apa6.cls
 Document Class: apa6 2013/01/10 v2.12 APA formatting (6th edition)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
@@ -380,7 +380,7 @@ Package: subfig 2005/06/28 ver: 1.3 subfig package
 \sf@top=\skip74
 \sf@bottom=\skip75
 )
-(D:\ULFT\EXPERIMENTE\Human_experiments\Auction\Pilot2\R\Results_WnP_Cali.aux)
+(D:\UlfT\Experimente\Human_experiments\Auction\Pilot2\R\Auction_MS.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
@@ -446,7 +446,7 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \makeMPintoPDFobject=\count138
 \everyMPtoPDFconversion=\toks25
 )
-(D:\ULFT\EXPERIMENTE\Human_experiments\Auction\Pilot2\R\config/APAamerican.txt
+(D:\UlfT\Experimente\Human_experiments\Auction\Pilot2\R\config/APAamerican.txt
 File: APAamerican.txt 2012/02/23 v1.25 apa6 configuration for American English
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -468,25 +468,66 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 
 [1{C:/Users/Ulf/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-]
-(D:\ULFT\EXPERIMENTE\Human_experiments\Auction\Pilot2\R\Results_WnP_Cali.bbl)
-AED endfloat: Processing end Figures and Tables [2]
-(D:\ULFT\EXPERIMENTE\Human_experiments\Auction\Pilot2\R\Results_WnP_Cali.aux) )
- 
+] [2]
+(Auction_MS.ttt)
+(D:\UlfT\Experimente\Human_experiments\Auction\Pilot2\R\Auction_MS.bbl)
+AED endfloat: Processing end Figures and Tables [3]
+(D:\UlfT\Experimente\Human_experiments\Auction\Pilot2\R\Auction_MS.ttt
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 5.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 5.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 5.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 5.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Warning: Float too large for page by 471.89432pt on input line 53.
+
+[4]) (D:\UlfT\Experimente\Human_experiments\Auction\Pilot2\R\Auction_MS.aux) ) 
 Here is how much of TeX's memory you used:
- 5196 strings out of 493921
- 72155 string characters out of 3147288
- 136837 words of memory out of 3000000
- 8428 multiletter control sequences out of 15000+200000
- 10699 words of font info for 18 fonts, out of 3000000 for 9000
+ 5312 strings out of 493921
+ 74500 string characters out of 3147288
+ 147880 words of memory out of 3000000
+ 8501 multiletter control sequences out of 15000+200000
+ 36749 words of font info for 44 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 43i,10n,47p,859b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/lm/lmr12.pfb>
-Output written on Results_WnP_Cali.pdf (2 pages, 52890 bytes).
+ 43i,10n,47p,2154b,317s stack positions out of 5000i,500n,10000p,200000b,50000s
+{
+C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/lm/lmr12.pfb>
+Output written on Auction_MS.pdf (4 pages, 63328 bytes).
 PDF statistics:
- 18 PDF objects out of 1000 (max. 8388607)
+ 24 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
