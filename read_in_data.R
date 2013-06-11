@@ -184,11 +184,19 @@ help.data<-with(my.data,aggregate(sunk.costs,list(id,pref_new),sum))
 
 ggplot(aes(y=x,x=factor(Group.2)),data=help.data)+geom_boxplot()
 
+#######
+#overbidding events
+#######
+my.data$over.event<-0
+current_status<-rep(0,5)
+for (i in 1:nrow(my.data))
+{
+  if(my.data$a_won[i]==-1&current_status[my.data$pref_new[i]]==1)my.data$over.event[i]<-1
+  current_status[my.data$pref_new[i]]<-my.data$a_won[i] 
+}
 
-
-
-
-
+help.data<-with(my.data,aggregate(over.event,list(id,pref_new),sum))     
+ggplot(aes(y=x,x=factor(Group.2)),data=help.data)+geom_boxplot()
 
 
 

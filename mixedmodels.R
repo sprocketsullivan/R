@@ -31,3 +31,54 @@ for (i in 1:max(part.data$session)){
     pair.number<-pair.number+1
   }
 }
+
+
+#######
+#preference change depends on what factors?
+#######
+# sunk costs?
+# overbidding by other player
+# first only for preference 5
+c_p<-5
+y<-ifelse(pref_before[,c_p]==pref_after[,c_p],1,0)
+y<-cbind(y,1-y)
+help.data<-with(my.data,aggregate(sunk.costs,list(id,pref_new),sum))
+sc<-subset(help.data,Group.2==c_p)$x
+#sc<-scale(sc)
+help.data<-with(my.data,aggregate(over.event,list(id,pref_new),sum))     
+oe<-subset(help.data,Group.2==c_p)$x
+help.data$x
+
+
+
+m.1<-glm(y~sc*oe,family=binomial)
+summary(m.1)
+
+
+help.data<-with(my.data,aggregate(sunk.costs,list(id,pref_new),sum))
+help.data$oe<-with(my.data,aggregate(over.event,list(id,pref_new),sum))$x
+
+for (i in 1:5)
+{
+  c_p<-i
+  if(i==1){
+  y<-ifelse(pref_before[,c_p]==pref_after[,c_p],1,0)
+  y<-cbind(y,1-y)}
+  else
+  {
+    yt<-ifelse(pref_before[,c_p]==pref_after[,c_p],1,0)
+    yt<-cbind(yt,1-yt)
+    y<-rbind(y,yt)
+  }
+}
+  
+  
+require(arm)
+m.mixed.comp<-lmer(y~oe+(oe|Group.2),family=binomial,data=help.data)
+display(m.mixed.comp)
+
+
+
+
+
+
