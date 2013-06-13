@@ -65,7 +65,7 @@ m_BU<-function(SM_temp,beta,thresh.1,thresh.3,cp,pref,update_utility,save_data){
   #initialise Value with flat beta
   Value<-dbeta(rep(1/101,101),1,1)*util[pref]+lottery_value
   utility<-rep(0,nrow(mod.data))
-  utility[1]<-util[pref]#thresh.3
+  utility[1]<-thresh.3#util[pref]#thresh.3
   prob_max<-rep(0,nrow(mod.data))
   #go through trials
   for (i in 1:(nrow(mod.data))){
@@ -78,8 +78,8 @@ m_BU<-function(SM_temp,beta,thresh.1,thresh.3,cp,pref,update_utility,save_data){
     #probability to win with utility below winning threshold
      if (c.means$means[c.means$trial==i][round(utility[i]+1)]<thresh.1&max(c.means$means[c.means$trial==i])>thresh.1)
      {
-       if(max(c.means$means[c.means$trial==i])>=thresh.1)
-       utility[i+1]<-mod.data$other_bid[i]+1 #((min(which(c.means$means[c.means$trial==i]>=thresh.1)))-1)else utility[i+1]<-100
+       #if(max(c.means$means[c.means$trial==i])>=thresh.1)
+       #utility[i+1]<-mod.data$other_bid[i]+1 #((min(which(c.means$means[c.means$trial==i]>=thresh.1)))-1)else utility[i+1]<-100
        #print(which(c.means$means[c.means$trial==i]>=thresh.1))
        #max(mod.data$own_bid[i],mod.data$other_bid[i])
 #       if(c.means$means[c.means$trial==i][mod.data$own_bid[i]+1]<thresh.1) utility[i+1]<-max(mod.data$own_bid[i],mod.data$her_bid[i])#max(which(c.means$means[c.means$trial==i]<=mod.data$other_bid[i]/100))

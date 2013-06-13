@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.11.1)  11 JUN 2013 12:34
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.11.1)  11 JUN 2013 17:33
 entering extended mode
 **D:/UlfT/Experimente/Human_experiments/Auction/Pilot2/R/Auction_MS.tex
 (D:/UlfT/Experimente/Human_experiments/Auction/Pilot2/R/Auction_MS.tex
@@ -468,17 +468,17 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 
 [1{C:/Users/toelch/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
-] [2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+]
+Underfull \vbox (badness 6477) has occurred while \output is active []
 
- [3]
-(D:\UlfT\Experimente\Human_experiments\Auction\Pilot2\R\Auction_MS.bbl)
+ [2]
+[3] (D:\UlfT\Experimente\Human_experiments\Auction\Pilot2\R\Auction_MS.bbl)
 AED endfloat: Processing end Figures and Tables [4]
 (D:\UlfT\Experimente\Human_experiments\Auction\Pilot2\R\Auction_MS.aux) ) 
 Here is how much of TeX's memory you used:
  5137 strings out of 494045
  71541 string characters out of 3145966
- 143719 words of memory out of 3000000
+ 142719 words of memory out of 3000000
  8368 multiletter control sequences out of 15000+200000
  10699 words of font info for 18 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -487,7 +487,7 @@ Here is how much of TeX's memory you used:
 ogram Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/lm/lmr12.pfb>
-Output written on Auction_MS.pdf (4 pages, 64520 bytes).
+Output written on Auction_MS.pdf (4 pages, 65312 bytes).
 PDF statistics:
  24 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

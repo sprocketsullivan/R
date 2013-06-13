@@ -4,7 +4,7 @@ rm(list=ls())
 base.dir<-("D:\\UlfT\\Experimente\\Human_experiments\\Auction\\Pilot2\\")
 dir(base.dir)
 #read in participant data
-part.data<-read.table(paste(base.dir,"participants.csv",sep=""),header=T,sep=",",dec=".")
+part.data<-read.table(paste(base.dir,"participants.csv",sep=""),header=T,sep="\t",dec=".")
 for (i in 1:nrow(part.data)){
   if(i==1) {
     my.data<-read.table(paste(base.dir,"raw_data\\",part.data[i,9],".csv",sep=""),header=F,skip=2,sep=",",nrow=204)    
@@ -52,7 +52,7 @@ my.data$pref_new[my.data$id%in%switcher&my.data$preference==2]<-4
 my.data$pair<-0
 my.data$pair[my.data$id%in%switcher]<- 1 
 require(ggplot2)
-ggplot(aes(y=own_bid,x=trials,col=factor(pref_new)),data=subset(my.data,trials>5&(preference==2|preference==4)))+geom_line()+facet_wrap(~id)
+ggplot(aes(y=own_bid,x=pref_trials,col=factor(pref_new)),data=subset(my.data,trials>5&(preference==2|preference==4)))+geom_line()+facet_wrap(~id)
 with(subset(my.data,trials>5),aggregate(own_bid,list(id,pref_new),mean))
 
 require(reshape)     
@@ -194,7 +194,7 @@ for (i in 1:nrow(my.data))
   if(my.data$a_won[i]==-1&current_status[my.data$pref_new[i]]==1)my.data$over.event[i]<-1
   current_status[my.data$pref_new[i]]<-my.data$a_won[i] 
 }
-
+require(ggplot2)
 help.data<-with(my.data,aggregate(over.event,list(id,pref_new),sum))     
 ggplot(aes(y=x,x=factor(Group.2)),data=help.data)+geom_boxplot()
 
