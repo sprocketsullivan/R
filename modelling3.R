@@ -2,22 +2,20 @@
 #Model 08/05/2013
 #######
 
-
-
 #The actual modelling function is contained in model_bayes_prob.R
-
 #current player
-c.id<-1
+c.id<-23
 #current preference
-c.preference<-2
+c.preference<-1
 #c.means gives the probability for each trial for each bid based on the get_prob_update_function
-c.means<-get_prob_update(c.id,c.preference,1)
-#c.means<-simple_prob_update(c.id,c.preference,1)
+c.means<-get_prob_update(c.id,c.preference,0,1)
+c.means.own<-get_prob_update(c.id,c.preference,1,1)
 require(bbmle)
-m.1<-mle2(m_BU,start=list(SM_temp=1,beta=2,thresh.1=12,thresh.3=90),upper=list(beta=100,SM_temp=5),lower=list(beta=0,thresh.1=1.1,thresh.3=0,SM_temp=0.001),fixed=list(cp=c.id,pref=c.preference,update_utility=2,save_data=0),method="L-BFGS-B")
+m.1<-mle2(m_BU,start=list(SM_temp=1,alpha.1=1,alpha.2=1),lower=list(alpha.1=1,alpha.2=1,SM_temp=0.01),fixed=list(cp=c.id,pref=c.preference,save_data=0),method="L-BFGS-B")
 require(bcp)
 summary(m.1)
-m_BU(coef(m.1)[1],coef(m.1)[2],coef(m.1)[3],coef(m.1)[4],c.id,c.preference,2,1)
+
+m_BU(coef(m.1)[1],coef(m.1)[2],coef(m.1)[3],c.id,c.preference,1)
 #m_BU(coef(m.1)[1],2,3,c.id,c.preference,1,1)
 res.1<-bcp(mod.data<-subset(my.data,id==c.id&pref_new==c.preference)$own_bid)
 res.plot<-data.frame(res=res.1$posterior.mean,trials=seq(1,length(res.1$posterior.mean)))
