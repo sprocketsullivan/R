@@ -6,12 +6,12 @@
 #current player
 c.id<-23
 #current preference
-c.preference<-1
+c.preference<-3
 #c.means gives the probability for each trial for each bid based on the get_prob_update_function
 c.means<-get_prob_update(c.id,c.preference,0,1)
 c.means.own<-get_prob_update(c.id,c.preference,1,1)
 require(bbmle)
-m.1<-mle2(m_BU,start=list(SM_temp=1,alpha.1=1,alpha.2=1),lower=list(alpha.1=1,alpha.2=1,SM_temp=0.01),fixed=list(cp=c.id,pref=c.preference,save_data=0),method="L-BFGS-B")
+m.1<-mle2(m_BU,start=list(SM_temp=1,alpha.1=.5,alpha.2=.5),lower=list(alpha.1=1,alpha.2=1,SM_temp=0.01),fixed=list(cp=c.id,pref=c.preference,save_data=0),method="L-BFGS-B")
 require(bcp)
 summary(m.1)
 

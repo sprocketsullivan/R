@@ -57,7 +57,7 @@ summary(m.1)
 
 help.data<-with(my.data,aggregate(sunk.costs,list(id,pref_new),sum))
 help.data$oe<-with(my.data,aggregate(over.event,list(id,pref_new),sum))$x
-
+pref_before==pref_after
 for (i in 1:5)
 {
   c_p<-i
@@ -71,11 +71,23 @@ for (i in 1:5)
     y<-rbind(y,yt)
   }
 }
-  
-  
+  y
+names(help.data)[3]<-c("sc")
+help.data$sc<-log(help.data$sc+1)
 require(arm)
-m.mixed.comp<-lmer(y~oe+(oe|Group.2),family=binomial,data=help.data)
+m.mixed.comp<-lmer(y~sc*oe+(1|Group.1)+(1|Group.2),family=binomial,data=help.data)
 display(m.mixed.comp)
+help.data
+require(car)
+qqPlot(residuals(m.mixed.comp))
+plot(residuals(m.mixed.comp)~fitted(m.mixed.comp))
+
+plot(aggregate(y[,1],list(help.data$oe),mean)$x[1:10])
+hist(help.data$sc)
+
+help.data$sc2<-round(help.data$sc)
+plot(aggregate(y[,1],list(help.data$sc2),mean)$x[1:10])
+
 
 
 

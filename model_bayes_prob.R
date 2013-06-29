@@ -103,7 +103,16 @@ m_BU<-function(SM_temp,alpha.1,alpha.2,cp,pref,save_data){
     ####selection via softmax   
     prob_max[i]<-exp(Value[mod.data$own_bid[i]+1]/SM_temp)/sum(exp(Value/SM_temp))
     ######
-    Value<-(c.means$means[c.means$trial==i]*alpha.1)+(lottery_value/100)*(1-alpha.1)#(1-exp(-(lottery_value)*alpha.2))#utility[i]*c.means$means[c.means$trial==i]+(1-exp(-(lottery_value)/25))*lottery_value
+    #guess other's player alpha
+    #####
+    opb<-mod.data$other_bid[i]
+    p.al<-seq(0,1,0.01)
+    val.1<-c.means.own$means[c.means.own$trial==i][opb+1]
+    val.2<-(100-opb)/100
+    val.3<-val.1*p.al+val.2*(1-p.al)
+    guess<-which(val.3==max(val.3))[1]
+    if(save_data) print(guess)
+    Value<-(c.means$means[c.means$trial==i]*alpha.1)+(lottery_value/100)*(alpha.2) #(1-exp(-(lottery_value)*alpha.2))#utility[i]*c.means$means[c.means$trial==i]+(1-exp(-(lottery_value)/25))*lottery_value
     #Value[1]<-0
     valleys[[i]]<<-Value
   }
